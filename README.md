@@ -1,14 +1,12 @@
-# terraform-module-template
-Template for Terraform modules
+# terraform-github-app-installation
 
-<!-- Uncomment and replace with your module name
-[![lint](https://github.com/flaconi/<MODULENAME>/workflows/lint/badge.svg)](https://github.com/flaconi/<MODULENAME>/actions?query=workflow%3Alint)
-[![test](https://github.com/flaconi/<MODULENAME>/workflows/test/badge.svg)](https://github.com/flaconi/<MODULENAME>/actions?query=workflow%3Atest)
-[![Tag](https://img.shields.io/github/tag/flaconi/<MODULENAME>.svg)](https://github.com/flaconi/<MODULENAME>/releases)
--->
+This module manages GitHub App permissions for multiple repositories
+
+[![lint](https://github.com/flaconi/terraform-github-app-installation/workflows/lint/badge.svg)](https://github.com/flaconi/terraform-github-app-installation/actions?query=workflow%3Alint)
+[![test](https://github.com/flaconi/terraform-github-app-installation/workflows/test/badge.svg)](https://github.com/flaconi/terraform-github-app-installation/actions?query=workflow%3Atest)
+[![Tag](https://img.shields.io/github/tag/flaconi/terraform-github-app-installation.svg)](https://github.com/flaconi/terraform-github-app-installation/releases)
+
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-
-For requirements regarding module structure: [style-guide-terraform.md](https://github.com/Flaconi/devops-docs/blob/master/doc/conventions/style-guide-terraform.md)
 
 <!-- TFDOCS_HEADER_START -->
 
@@ -18,7 +16,9 @@ For requirements regarding module structure: [style-guide-terraform.md](https://
 <!-- TFDOCS_PROVIDER_START -->
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_github"></a> [github](#provider\_github) | ~> 6.2 |
 
 <!-- TFDOCS_PROVIDER_END -->
 
@@ -28,13 +28,26 @@ No providers.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.3 |
+| <a name="requirement_github"></a> [github](#requirement\_github) | ~> 6.2 |
 
 <!-- TFDOCS_REQUIREMENTS_END -->
 
 <!-- TFDOCS_INPUTS_START -->
 ## Required Inputs
 
-No required inputs.
+The following input variables are required:
+
+### <a name="input_installation_id"></a> [installation\_id](#input\_installation\_id)
+
+Description: GitHub App installation id
+
+Type: `string`
+
+### <a name="input_repositories"></a> [repositories](#input\_repositories)
+
+Description: List of names of repositories which will be granted access to.
+
+Type: `list(string)`
 
 ## Optional Inputs
 
@@ -53,4 +66,4 @@ No outputs.
 
 **[MIT License](LICENSE)**
 
-Copyright (c) 2023 **[Flaconi GmbH](https://github.com/flaconi)**
+Copyright (c) 2024 **[Flaconi GmbH](https://github.com/flaconi)**
